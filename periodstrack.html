@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periods Track</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="https://img.icons8.com/ios-filled/100/fa709a/butterfly.png" alt="Logo">
+            <h1>SHE CARE</h1>
+        </div>
+        <nav class="menu" id="menu">
+        <a href="index.html">Home</a>
+        <a href="wohy.html" class="active">Women’s Hygiene</a>
+        <a href="periodstrack.html">Period Tracker</a>
+        <a href="periodsana.html">Period Analysis</a>
+        <a href="disandprev.html">Diseases & Prevention</a>
+        <a href="napm.html">Napkin machine tracker</a>
+        <a href="more.html">More</a>
+        </nav>
+
+        <!-- Mobile Menu Icon -->
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    </header>
+
+
+
+
+
+<div class="container">
+
+    <h1>Period Tracker</h1>
+    <p class="subtitle">Log and track your menstrual cycles</p>
+
+    <button class="btn-add" onclick="openForm()">+ Add Cycle</button>
+
+    <!-- NEXT PERIOD -->
+    <div class="card" id="nextPredictionCard">
+        <h3>Next Period Prediction</h3>
+        <p id="predictionDate">–</p>
+    </div>
+
+    <!-- FORM -->
+    <form id="cycleForm">
+        <input type="hidden" id="editIndex">
+
+        <label>Start Date</label>
+        <input type="date" id="startDate" required>
+
+        <label>End Date</label>
+        <input type="date" id="endDate" required>
+
+        <label>Flow</label>
+        <select id="flow">
+            <option>Light Flow</option>
+            <option selected>Moderate Flow</option>
+            <option>Heavy Flow</option>
+        </select>
+
+        <button type="submit" class="submit-btn">Save Cycle</button>
+    </form>
+
+    <!-- LIST -->
+    <div id="cycleList"></div>
+
+</div>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Women’s Hygiene | Made with ❤️</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

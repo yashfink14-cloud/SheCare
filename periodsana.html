@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Period Analysis</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js for graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body { background:#ffeef3; font-family:"Poppins", sans-serif; }
+
+        .analysis-container{
+            max-width:1100px;
+            margin:30px auto;
+            background:white;
+            padding:25px;
+            border-radius:18px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.08);
+        }
+        .ana-title{ font-size:28px; color:#c71c57; }
+        .ana-subtitle{ color:#666; margin-top:4px; margin-bottom:25px; }
+
+        .metrics{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:18px;
+            margin-bottom:30px;
+        }
+        .ana-card{
+            padding:20px;
+            border-radius:15px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.04);
+        }
+        .pink{background:#ffe2eb;}
+        .lightpink{background:#ffe9f4;}
+        .cream{background:#fff6e4;}
+        .softpink{background:#ffe3ea;}
+
+        .metric-label{ font-size:14px; color:#b0234a; }
+        .metric-value{ font-size:34px; margin:8px 0; color:#b3123c; }
+        .metric-small{ font-size:13px; color:#555; }
+        .orange-text{color:#d06b00;}
+
+        .flow-box{
+            margin-top:10px;
+            background:#ffffff;
+            padding:20px;
+            border-radius:15px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .flow-item{ margin-top:15px; position:relative; }
+        .flow-item p{ margin-bottom:4px; }
+
+        .flow-bar{
+            width:100%;
+            height:10px;
+            background:#fcd0d7;
+            border-radius:10px;
+            overflow:hidden;
+        }
+        .flow-fill{
+            height:100%;
+            background:#ff3b63;
+            border-radius:10px;
+            width:0%;
+            transition:width .4s ease;
+        }
+        .flow-count{
+            position:absolute;
+            right:0;
+            top:0;
+            font-weight:600;
+            color:#c71c57;
+            font-size:14px;
+        }
+
+        .next-cycles{
+            margin-top:25px;
+            background:#fff7fb;
+            padding:18px 20px;
+            border-radius:15px;
+            border:1px dashed #ff9bb6;
+        }
+
+        .chart-section{
+            margin-top:30px;
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+            gap:20px;
+        }
+        .chart-card{
+            background:#fff;
+            padding:18px;
+            border-radius:15px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .no-data{ color:#999; font-size:14px; margin-top:8px; }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="https://img.icons8.com/ios-filled/100/fa709a/butterfly.png" alt="Logo">
+            <h1>SHE CARE</h1>
+        </div>
+        <nav class="menu" id="menu">
+        <a href="index.html">Home</a>
+        <a href="wohy.html" class="active">Women’s Hygiene</a>
+        <a href="periodstrack.html">Period Tracker</a>
+        <a href="periodsana.html">Period Analysis</a>
+        <a href="disandprev.html">Diseases & Prevention</a>
+        <a href="napm.html">Napkin machine tracker</a>
+        <a href="more.html">More</a>
+        </nav>
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    </header>
+
+    <!-- ANALYSIS AREA -->
+    <div class="analysis-container">
+
+        <h2 class="ana-title">Period Analysis</h2>
+        <p class="ana-subtitle">Insights based on your tracked cycles</p>
+
+        <div class="metrics">
+            <div class="ana-card pink">
+                <p class="metric-label">📅 Avg Cycle Length</p>
+                <h1 class="metric-value" id="avgCycle">N/A</h1>
+                <p class="metric-small">days</p>
+            </div>
+
+            <div class="ana-card lightpink">
+                <p class="metric-label">⏱ Avg Period Duration</p>
+                <h1 class="metric-value" id="avgDuration">N/A</h1>
+                <p class="metric-small">days</p>
+            </div>
+
+            <div class="ana-card cream">
+                <p class="metric-label">📉 Cycle Consistency</p>
+                <h1 class="metric-value orange-text" id="consistency">Need more data</h1>
+                <p class="metric-small">pattern regularity</p>
+            </div>
+
+            <div class="ana-card softpink">
+                <p class="metric-label">📈 Total Cycles</p>
+                <h1 class="metric-value" id="totalCycles">0</h1>
+                <p class="metric-small">tracked so far</p>
+            </div>
+        </div>
+
+        <!-- FLOW DISTRIBUTION -->
+        <div class="flow-box">
+            <h3>Flow Distribution</h3>
+
+            <div class="flow-item">
+                <p>Light Flow</p>
+                <div class="flow-bar"><div class="flow-fill" id="lightBar"></div></div>
+                <span class="flow-count" id="lightCount">0</span>
+            </div>
+
+            <div class="flow-item">
+                <p>Moderate Flow</p>
+                <div class="flow-bar"><div class="flow-fill" id="modBar"></div></div>
+                <span class="flow-count" id="modCount">0</span>
+            </div>
+
+            <div class="flow-item">
+                <p>Heavy Flow</p>
+                <div class="flow-bar"><div class="flow-fill" id="heavyBar"></div></div>
+                <span class="flow-count" id="heavyCount">0</span>
+            </div>
+        </div>
+
+        <!-- NEXT 3 CYCLES -->
+        <div class="next-cycles">
+            <h3>Next Predicted Cycles</h3>
+            <p id="nextText" class="no-data">Add a few cycles in the tracker.</p>
+            <ul id="nextList"></ul>
+        </div>
+
+        <!-- CHARTS -->
+        <div class="chart-section">
+            <div class="chart-card">
+                <h3>Cycle Length Trend</h3>
+                <canvas id="cycleChart"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <h3>Period Duration Chart</h3>
+                <canvas id="durationChart"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+    /* ---------------- FINAL WORKING ANALYSIS SCRIPT ---------------- */
+
+    const MS_PER_DAY = 1000 * 60 * 60 * 24;
+
+    let cycle = JSON.parse(localStorage.getItem("cycles")) || [];
+
+    cycle.sort((a,b)=> new Date(a.start) - new Date(b.start));
+
+    document.getElementById("totalCycles").innerText = cycle.length;
+
+    function diffDays(d1,d2){ return Math.ceil((d2-d1)/MS_PER_DAY); }
+
+    function formatDate(date){
+        return new Date(date).toLocaleDateString("en-US",{
+            month:"long", day:"numeric", year:"numeric"
+        });
+    }
+
+    function getAvgCycleLength(){
+        if(cycle.length < 2) return null;
+        let arr=[];
+        for(let i=1;i<cycle.length;i++){
+            arr.push(diffDays(new Date(cycle[i-1].start), new Date(cycle[i].start)));
+        }
+        return Math.round(arr.reduce((a,b)=>a+b)/arr.length);
+    }
+
+    function getAvgDuration(){
+        if(cycle.length == 0) return null;
+        let arr = cycle.map(c=> diffDays(new Date(c.start), new Date(c.end)));
+        return Math.round(arr.reduce((a,b)=>a+b)/arr.length);
+    }
+
+    function getConsistency(){
+        if(cycle.length < 3) return "Need more data";
+        let arr=[];
+        for(let i=1;i<cycle.length;i++){
+            arr.push(diffDays(new Date(cycle[i-1].start), new Date(cycle[i].start)));
+        }
+        return Math.max(...arr)-Math.min(...arr) <= 5 ? "Regular" : "Irregular";
+    }
+
+    function updateFlow(){
+        let light = cycle.filter(c=>c.flow==="Light Flow").length;
+        let mod = cycle.filter(c=>c.flow==="Moderate Flow").length;
+        let heavy = cycle.filter(c=>c.flow==="Heavy Flow").length;
+        let total = cycle.length || 1;
+
+        document.getElementById("lightBar").style.width = (light/total*100)+"%";
+        document.getElementById("modBar").style.width = (mod/total*100)+"%";
+        document.getElementById("heavyBar").style.width = (heavy/total*100)+"%";
+
+        document.getElementById("lightCount").innerText = light;
+        document.getElementById("modCount").innerText = mod;
+        document.getElementById("heavyCount").innerText = heavy;
+    }
+
+    function updateNextCycles(){
+        const nextText=document.getElementById("nextText");
+        const nextList=document.getElementById("nextList");
+        nextList.innerHTML="";
+
+        if(cycle.length==0) return;
+
+        const avg = getAvgCycleLength() || 28;
+        let lastEnd = new Date(cycle[cycle.length-1].end);
+
+        nextText.innerText = `Based on your average cycle length (${avg} days):`;
+
+        for(let i=1;i<=3;i++){
+            let d = new Date(lastEnd);
+            d.setDate(d.getDate() + avg*i);
+            let li=document.createElement("li");
+            li.innerText = `Cycle ${cycle.length+i} may start around ${formatDate(d)}`;
+            nextList.appendChild(li);
+        }
+    }
+
+    function buildCharts(){
+        let durationLabels = cycle.map((c,i)=>"Cycle "+(i+1));
+        let durations = cycle.map(c=> diffDays(new Date(c.start), new Date(c.end)));
+
+        let cycleLabels = [];
+        let cycleLens = [];
+
+        for(let i=1;i<cycle.length;i++){
+            cycleLabels.push("Cycle "+(i+1));
+            cycleLens.push(diffDays(new Date(cycle[i-1].start), new Date(cycle[i].start)));
+        }
+
+        new Chart(document.getElementById("cycleChart"),{
+            type:"line",
+            data:{
+                labels:cycleLabels,
+                datasets:[{
+                    label:"Cycle Length (days)",
+                    data:cycleLens,
+                    borderColor:"rgba(255,99,132,1)",
+                    backgroundColor:"rgba(255,99,132,0.2)",
+                    tension:0.3
+                }]
+            }
+        });
+
+        new Chart(document.getElementById("durationChart"),{
+            type:"bar",
+            data:{
+                labels:durationLabels,
+                datasets:[{
+                    label:"Period Duration (days)",
+                    data:durations,
+                    backgroundColor:"rgba(255,99,132,0.4)",
+                    borderColor:"rgba(255,99,132,1)"
+                }]
+            }
+        });
+    }
+
+    // DISPLAY DATA
+    document.getElementById("avgCycle").innerText = getAvgCycleLength() || "N/A";
+    document.getElementById("avgDuration").innerText = getAvgDuration() || "N/A";
+    document.getElementById("consistency").innerText = getConsistency();
+
+    updateFlow();
+    updateNextCycles();
+    if(cycle.length>0) buildCharts();
+    </script>
+<script src="script.js"></script>
+</body>
+</html>

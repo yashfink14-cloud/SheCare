@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseases and Prevention</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="https://img.icons8.com/ios-filled/100/fa709a/butterfly.png" alt="Logo">
+            <h1>SHE CARE</h1>
+        </div>
+        <nav class="menu" id="menu">
+        <a href="index.html">Home</a>
+        <a href="wohy.html" class="active">Women’s Hygiene</a>
+        <a href="periodstrack.html">Period Tracker</a>
+        <a href="periodsana.html">Period Analysis</a>
+        <a href="disandprev.html">Diseases & Prevention</a>
+        <a href="napm.html">Napkin machine tracker</a>
+        <a href="more.html">More</a>
+        </nav>
+
+        <!-- Mobile Menu Icon -->
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    </header>
+
+    <body>
+
+
+
+    <main class="container" id="home">
+        <!-- HERO -->
+        <section class="hero">
+            <div>
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    <span>Safe, simple, science-based information</span>
+                </div>
+
+                <h1 class="hero-title">
+                    Clean, Confident,Healthy.
+                </h1>
+
+                <p class="hero-subtitle">
+                    Learn about common intimate health conditions, symptoms, and prevention.
+                    This guide is for awareness only and does <strong>not</strong> replace a doctor.
+                </p>
+
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="scrollToSection('conditions')">
+                        Explore conditions →
+                    </button>
+                    <button class="btn-ghost" onclick="scrollToSection('prevention')">
+                        Daily hygiene checklist
+                    </button>
+                </div>
+
+                <div class="hero-mini">
+                    <span><strong>6+</strong> common conditions explained</span>
+                    <span><strong>Prevention</strong> & warning signs</span>
+                    <span><strong>Gentle</strong> & respectful language</span>
+                </div>
+            </div>
+
+            <div class="hero-card" aria-label="Quick health overview">
+                <div class="hero-blob"></div>
+
+                <div class="hero-card-heading">Your intimate health snapshot 💗</div>
+
+                <div class="hero-card-grid">
+                    <div class="chip">
+                        <span class="chip-dot"></span>
+                        <span>Unusual discharge?</span>
+                    </div>
+                    <div class="chip">
+                        <span class="chip-dot" style="background: var(--safe);"></span>
+                        <span>Pain-free period?</span>
+                    </div>
+                    <div class="chip">
+                        <span class="chip-dot" style="background: var(--accent);"></span>
+                        <span>Burning while peeing?</span>
+                    </div>
+                    <div class="chip">
+                        <span class="chip-dot" style="background: #f0b323;"></span>
+                        <span>Regular check-ups?</span>
+                    </div>
+                </div>
+
+                <div class="hero-card-footer">
+                    <div class="hero-card-badge">
+                        This site helps you decide <strong>when to see a doctor</strong>, not to self-diagnose.
+                    </div>
+                    <div class="hero-callout">
+                        Feeling worried right now? Scroll to the <strong>Get Help</strong> section below. ⬇
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONDITIONS -->
+        <section id="conditions">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <div class="section-kicker">Conditions</div>
+                    <div class="section-title">Common intimate health issues</div>
+                    <p class="section-subtitle">
+                        Tap “Details” on any card to see typical symptoms, simple home care tips,
+                        and when you should definitely visit a doctor.
+                    </p>
+                </div>
+                <div>
+                    <div class="tag-pill">
+                        🩺 For awareness • Not a diagnosis
+                    </div>
+                </div>
+            </div>
+
+            <div class="conditions-grid">
+                <!-- 1. UTI -->
+                <article class="card">
+                    <div class="card-header-label">
+                        <span class="card-header-label-dot"></span>
+                        Urinary Tract Infection (UTI)
+                    </div>
+                    <h3 class="card-title">Burning when peeing</h3>
+                    <p class="card-sub">
+                        Infection in the bladder or urinary tract, very common especially in women.
+                    </p>
+
+                    <div class="card-tags">
+                        <span class="card-tag">Burning sensation</span>
+                        <span class="card-tag">Frequent urge</span>
+                        <span class="card-tag">Cloudy urine</span>
+                    </div>
+
+                    <div class="card-details">
+                        <strong>Common symptoms:</strong>
+                        <ul>
+                            <li>Burning or pain while urinating</li>
+                            <li>Needing to pee very often, but only a little comes out</li>
+                            <li>Cloudy, strong-smelling or slightly bloody urine</li>
+                            <li>Lower belly discomfort</li>
+                        </ul>
+
+                        <strong>Basic prevention:</strong>
+                        <ul>
+                            <li>Drink enough water during the day</li>
+                            <li>Do not hold urine for very long</li>
+                            <li>Wipe from front to back after using the toilet</li>
+                            <li>Pee soon after sexual activity</li>
+                        </ul>
+
+                        <strong>See a doctor urgently if:</strong>
+                        <ul>
+                            <li>You have fever, back pain, or vomiting</li>
+                            <li>Symptoms are strong or do not improve within 1–2 days</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-footer">
+                        <button class="card-link-button" onclick="toggleCardDetails(this)">
+                            Details <span>+</span>
+                        </button>
+                        <span class="severity-pill severity-med">Usually mild, can spread if ignored</span>
+                    </div>
+                </article>
+
+                <!-- 2. Vaginal yeast infection -->
+                <article class="card">
+                    <div class="card-header-label">
+                        <span class="card-header-label-dot" style="background: #f0b323;"></span>
+                        Vaginal yeast infection
+                    </div>
+                    <h3 class="card-title">Intense itching or cottage-cheese discharge</h3>
+                    <p class="card-sub">
+                        Overgrowth of a natural fungus, often after antibiotics, stress, or moisture.
+                    </p>
+
+                    <div class="card-tags">
+                        <span class="card-tag">Thick discharge</span>
+                        <span class="card-tag">Redness</span>
+                        <span class="card-tag">Itching</span>
+                    </div>
+
+                    <div class="card-details">
+                        <strong>Common symptoms:</strong>
+                        <ul>
+                            <li>White, thick discharge that looks like cottage cheese</li>
+                            <li>Itching and burning in the vulva/vaginal area</li>
+                            <li>Redness, swelling, or soreness</li>
+                            <li>Pain during sex or while peeing</li>
+                        </ul>
+
+                        <strong>Basic prevention:</strong>
+                        <ul>
+                            <li>Keep the area clean and dry</li>
+                            <li>Avoid very tight, synthetic underwear – choose cotton</li>
+                            <li>Do not use scented soaps, sprays, or vaginal douches</li>
+                        </ul>
+
+                        <strong>See a doctor if:</strong>
+                        <ul>
+                            <li>It’s your first time and you are unsure of the cause</li>
+                            <li>Symptoms keep coming back</li>
+                            <li>There is strong smell, fever, or pelvic pain</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-footer">
+                        <button class="card-link-button" onclick="toggleCardDetails(this)">
+                            Details <span>+</span>
+                        </button>
+                        <span class="severity-pill severity-low">Usually treatable with medicines</span>
+                    </div>
+                </article>
+
+                <!-- 3. Bacterial vaginosis -->
+                <article class="card">
+                    <div class="card-header-label">
+                        <span class="card-header-label-dot" style="background: var(--safe);"></span>
+                        Bacterial vaginosis (BV)
+                    </div>
+                    <h3 class="card-title">Fishy smell or greyish discharge</h3>
+                    <p class="card-sub">
+                        Imbalance of natural vaginal bacteria, not a “dirty” problem and not an STI by itself.
+                    </p>
+
+                    <div class="card-tags">
+                        <span class="card-tag">Fishy odour</span>
+                        <span class="card-tag">Thin discharge</span>
+                        <span class="card-tag">Irritation</span>
+                    </div>
+
+                    <div class="card-details">
+                        <strong>Common symptoms:</strong>
+                        <ul>
+                            <li>Thin grey/white discharge</li>
+                            <li>Strong fishy smell, especially after sex</li>
+                            <li>Mild itching or burning</li>
+                        </ul>
+
+                        <strong>Basic prevention:</strong>
+                        <ul>
+                            <li>Avoid vaginal douching and harsh products</li>
+                            <li>Use condoms to reduce changes in vaginal bacteria</li>
+                            <li>Change pads/liners regularly during periods</li>
+                        </ul>
+
+                        <strong>See a doctor if:</strong>
+                        <ul>
+                            <li>You are pregnant and notice these symptoms</li>
+                            <li>Symptoms keep coming back or are very bothersome</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-footer">
+                        <button class="card-link-button" onclick="toggleCardDetails(this)">
+                            Details <span>+</span>
+                        </button>
+                        <span class="severity-pill severity-med">Important to treat in pregnancy</span>
+                    </div>
+                </article>
+
+                <!-- 4. STIs overview -->
+                <article class="card">
+                    <div class="card-header-label">
+                        <span class="card-header-label-dot" style="background: #e25a5a;"></span>
+                        Sexually transmitted infections (STIs)
+                    </div>
+                    <h3 class="card-title">Pain, sores, warts or unusual discharge</h3>
+                    <p class="card-sub">
+                        Infections passed through sexual contact (e.g., chlamydia, gonorrhoea, HPV, herpes).
+                    </p>
+
+                    <div class="card-tags">
+                        <span class="card-tag">Unprotected sex</span>
+                        <span class="card-tag">Sores/warts</span>
+                        <span class="card-tag">Pelvic pain</span>
+                    </div>
+
+                    <div class="card-details">
+                        <strong>Possible warning signs:</strong>
+                        <ul>
+                            <li>Unusual discharge or bleeding between periods</li>
+                            <li>Burning while peeing or pelvic pain</li>
+                            <li>Blisters, warts, or sores on genitals</li>
+                            <li>Pain during sex</li>
+                        </ul>
+
+                        <strong>Basic prevention:</strong>
+                        <ul>
+                            <li>Use condoms or protection during sex</li>
+                            <li>Get regular check-ups if sexually active</li>
+                            <li>HPV vaccination (as advised by a doctor)</li>
+                        </ul>
+
+                        <strong>See a doctor/clinic quickly if:</strong>
+                        <ul>
+                            <li>You notice any sores, warts, or unusual bleeding</li>
+                            <li>You had unprotected sex with a new partner</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-footer">
+                        <button class="card-link-button" onclick="toggleCardDetails(this)">
+                            Details <span>+</span>
+                        </button>
+                        <span class="severity-pill severity-high">Needs medical check & tests</span>
+                    </div>
+                </article>
+
+                <!-- 5. PCOS & irregular periods -->
+                <article class="card">
+                    <div class="card-header-label">
+                        <span class="card-header-label-dot" style="background: #5b4dc2;"></span>
+                        PCOS & menstrual issues
+                    </div>
+                    <h3 class="card-title">Irregular periods or heavy bleeding</h3>
+                    <p class="card-sub">
+                        Hormone-related conditions that can affect periods, fertility, skin, and weight.
+                    </p>
+
+                    <div class="card-tags">
+                        <span class="card-tag">Skipped periods</span>
+                        <span class="card-tag">Acne / hair</span>
+                        <span class="card-tag">Cramps</span>
+                    </div>
+
+                    <div class="card-details">
+                        <strong>Possible signs:</strong>
+                        <ul>
+                            <li>Periods coming very late, very often, or not at all</li>
+                            <li>Very heavy bleeding or severe cramps</li>
+                            <li>Increased facial/body hair, acne, or weight changes</li>
+                        </ul>
+
+                        <strong>Self-care & lifestyle:</strong>
+                        <ul>
+                            <li>Balanced diet and regular movement/exercise</li>
+                            <li>Maintain healthy weight as advised by doctor</li>
+                            <li>Good sleep and stress management</li>
+                        </ul>
+
+                        <strong>See a doctor if:</strong>
+                        <ul>
+                            <li>Your periods are irregular for several months</li>
+                            <li>Pain is so strong you can’t do daily activities</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-footer">
+                        <button class="card-link-button" onclick="toggleCardDetails(this)">
+                            Details <span>+</span>
+                        </button>
+                        <span class="severity-pill severity-med">Needs medical follow-up</span>
+                    </div>
+                </article>
+
+                <!-- 6. Cervical health -->
+                <article class="card">
+                    <div class="card-header-label">
+                        <span class="card-header-label-dot" style="background: #1b9d67;"></span>
+                        Cervical health & screening
+                    </div>
+                    <h3 class="card-title">Pap smear & HPV awareness</h3>
+                    <p class="card-sub">
+                        Regular screening can detect early cell changes and reduce cervical cancer risk.
+                    </p>
+
+                    <div class="card-tags">
+                        <span class="card-tag">Pap test</span>
+                        <span class="card-tag">HPV vaccine</span>
+                        <span class="card-tag">Early detection</span>
+                    </div>
+
+                    <div class="card-details">
+                        <strong>Why screening matters:</strong>
+                        <ul>
+                            <li>Can detect cell changes before they become serious</li>
+                            <li>Some HPV infections have no symptoms but still cause changes</li>
+                        </ul>
+
+                        <strong>General guidance (varies by country):</strong>
+                        <ul>
+                            <li>Talk to your doctor about when to start Pap tests</li>
+                            <li>Ask if HPV vaccination is right for you</li>
+                        </ul>
+
+                        <strong>See a doctor if:</strong>
+                        <ul>
+                            <li>You have bleeding after sex or between periods</li>
+                            <li>You notice persistent pelvic pain or foul-smelling discharge</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-footer">
+                        <button class="card-link-button" onclick="toggleCardDetails(this)">
+                            Details <span>+</span>
+                        </button>
+                        <span class="severity-pill severity-high">Screening saves lives</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- PREVENTION & SELF-CARE -->
+        <section id="prevention">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <div class="section-kicker">Prevention</div>
+                    <div class="section-title">Daily hygiene & protection</div>
+                    <p class="section-subtitle">
+                        Small habits every day can reduce the risk of infections and discomfort.
+                        These tips are general; always follow your doctor’s advice first.
+                    </p>
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div class="list-block">
+                    <div class="list-block-title">Daily hygiene checklist</div>
+                    <p class="list-block-sub">
+                        Gentle care is better than over-cleaning. The vagina cleans itself.
+                        You only need to wash the outer area (vulva).
+                    </p>
+
+                    <ol class="numbered-list">
+                        <li>
+                            <div>
+                                <strong>Wash the outer area once a day</strong><br />
+                                Use lukewarm water or very mild, unscented soap
+                                on the vulva only. Do not insert soap inside.
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>Wipe front to back</strong><br />
+                                After using the toilet, wipe from front to back
+                                to avoid spreading germs from anus to vagina/urethra.
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>Change pads / tampons regularly</strong><br />
+                                During periods, change pads every 4–6 hours (or sooner if full).
+                                Avoid using one pad for the whole day or night.
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>Choose breathable underwear</strong><br />
+                                Prefer cotton underwear; avoid staying long in
+                                wet clothes (swimwear, sweaty gym wear).
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>Practice safer sex</strong><br />
+                                Use condoms, especially with new or multiple partners,
+                                and talk openly about STI testing.
+                            </div>
+                        </li>
+                    </ol>
+
+                    <div class="did-you-know">
+                        <div class="did-you-know-icon">💡</div>
+                        <div>
+                            <strong>Did you know?</strong><br />
+                            Scented washes, vaginal steaming, and douching may
+                            disturb natural pH and actually increase infection risk.
+                            Simple water + gentle patience is usually best.
+                        </div>
+                    </div>
+                </div>
+
+                <div id="selfcare" class="list-block">
+                    <div class="list-block-title">Self-care for comfort days</div>
+                    <p class="list-block-sub">
+                        These ideas can support comfort but do not treat serious infections.
+                        Stop if anything makes your symptoms worse.
+                    </p>
+
+                    <ul class="check-list">
+                        <li>
+                            <span class="check-bullet">✓</span>
+                            <span>Warm (not hot) water compress on the lower belly for cramps.</span>
+                        </li>
+                        <li>
+                            <span class="check-bullet">✓</span>
+                            <span>Loose, soft cotton clothing to let the area breathe.</span>
+                        </li>
+                        <li>
+                            <span class="check-bullet">✓</span>
+                            <span>Drink enough water and include fruits, vegetables, and iron-rich foods in your diet.</span>
+                        </li>
+                        <li>
+                            <span class="check-bullet">✓</span>
+                            <span>Track your period and symptoms in a diary or app – helpful to show your doctor.</span>
+                        </li>
+                        <li>
+                            <span class="check-bullet">✓</span>
+                            <span>Simple relaxation: slow breathing, stretching, or light walks can ease stress around your cycle.</span>
+                        </li>
+                    </ul>
+
+                    <div class="did-you-know">
+                        <div class="did-you-know-icon">📝</div>
+                        <div>
+                            <strong>Did you know?</strong><br />
+                            Writing down when symptoms start, what you ate, and products you used
+                            can help your doctor quickly find possible triggers.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHEN TO SEE A DOCTOR -->
+        <section id="doctor">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <div class="section-kicker">Warning signs</div>
+                    <div class="section-title">When you should see a doctor</div>
+                    <p class="section-subtitle">
+                        If you are ever unsure, it is always okay to ask for medical help.
+                        Trust your body – if something feels “not normal” for you, get it checked.
+                    </p>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <div class="alert-box-title">
+                    <span⚠️ Important:</span>
+                    <span>Go to a doctor or emergency room if you notice:</span>
+                </div>
+
+                <ul class="alert-list">
+                    <li>
+                        <span class="alert-dot">•</span>
+                        <span>Very strong pain in the lower belly or pelvis that doesn’t get better with rest or pain medicine.</span>
+                    </li>
+                    <li>
+                        <span class="alert-dot">•</span>
+                        <span>Fever, chills, or feeling very weak along with vaginal symptoms.</span>
+                    </li>
+                    <li>
+                        <span class="alert-dot">•</span>
+                        <span>Bleeding after sex, between periods, or after menopause.</span>
+                    </li>
+                    <li>
+                        <span class="alert-dot">•</span>
+                        <span>Strong, foul-smelling discharge with pain or itching.</span>
+                    </li>
+                    <li>
+                        <span class="alert-dot">•</span>
+                        <span>Suspicion of pregnancy with pain or heavy bleeding.</span>
+                    </li>
+                </ul>
+
+                <div class="emergency-strip">
+                    <span>In an emergency, do <strong>not</strong> wait for this website. Call your local emergency number or visit the nearest hospital.</span>
+                    <span>🌸 You deserve gentle, respectful healthcare.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <div class="section-kicker">FAQ</div>
+                    <div class="section-title">Questions many women quietly ask</div>
+                    <p class="section-subtitle">
+                        You are never “silly” or “too sensitive” for asking questions.
+                        If something worries you, it is valid.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-list">
+                <div>
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <div class="faq-question">
+                            <span>Is vaginal discharge always a sign of infection?</span>
+                            <span class="faq-toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                No. Some discharge is normal – it can change with your menstrual cycle and may be
+                                clear, white, or slightly sticky. Warning signs include: very strong smell,
+                                greenish/grey colour, cottage-cheese-like clumps, or discharge with pain, itching, or bleeding.
+                                In those cases, see a doctor for proper tests.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <div class="faq-question">
+                            <span>Can I wash inside the vagina to keep it extra clean?</span>
+                            <span class="faq-toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                No douching is recommended. The vagina cleans itself naturally. Putting soaps,
+                                antiseptics, or water inside can disturb the natural bacteria and pH, and may
+                                cause infections or irritation. Only gently wash the outer area (vulva).
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <div class="faq-question">
+                            <span>Is it safe to wash hair or bathe during periods?</span>
+                            <span class="faq-toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Yes. You can bathe or wash your hair during periods. In fact, warm baths can help
+                                relax cramps and improve comfort. Just change your pad/tampon/menstrual cup regularly
+                                and dry yourself properly.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <div class="faq-question">
+                            <span>How do I talk to a doctor if I feel shy?</span>
+                            <span class="faq-toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                You can write your symptoms on paper or in your phone and show it to the doctor.
+                                Use simple words like “itching”, “burning”, “unusual smell” or “pain during sex”.
+                                A good doctor will listen without judgement. You can also ask for a female doctor
+                                if that makes you more comfortable (where available).
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <div class="faq-question">
+                            <span>Can I use home remedies only instead of seeing a doctor?</span>
+                            <span class="faq-toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Mild discomfort can sometimes improve with better hygiene, loose clothing,
+                                and avoiding irritants. But home remedies should never replace medical care
+                                if you have strong symptoms, pain, fever, bleeding, or if symptoms keep coming back.
+                                Always seek professional help for serious or recurring problems.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <div class="faq-question">
+                            <span>Is everything I read online trustworthy?</span>
+                            <span class="faq-toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Not always. Use trusted health sources (hospitals, public health sites, recognised NGOs).
+                                This website is for general awareness and cannot replace a personalised medical opinion.
+                                For any doubt about your own body, a real doctor who can examine you is the best guide.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HELP / CONTACT -->
+        <section id="help">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <div class="section-kicker">Support</div>
+                    <div class="section-title">Get help and track your symptoms</div>
+                    <p class="section-subtitle">
+                        Use this section as a reminder to reach out for help. If your country has helplines
+                        or women’s health clinics, add their details here.
+                    </p>
+                </div>
+            </div>
+
+            <div class="help-card">
+                <div class="help-meta">
+                    <h3>Save your health notes here</h3>
+                    <p>
+                        You can write down the date, symptoms, medicines you took, and questions you want to ask.
+                        Keeping a small record makes doctor visits easier and less stressful.
+                    </p>
+                    <small>
+                        Tip: Turn this box into a form connected to a database or Google Sheet
+                        if you add a backend later.
+                    </small>
+                </div>
+
+                <div class="help-actions">
+                    <div class="help-chip-row">
+                        <div class="tag-pill">🌸 You deserve respectful care</div>
+                        <div class="tag-pill">📝 Write your questions before your visit</div>
+                    </div>
+
+                    <div class="input-row">
+                        <input type="text" id="symptomInput" placeholder="Example: Itching for 3 days, burning while peeing..." />
+                        <button class="btn-small" onclick="saveSymptom()">Save note (browser only)</button>
+                    </div>
+                    <small id="symptomStatus"></small>
+                </div>
+            </div>
+        </section>
+
+
+  
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Women’s Hygiene | Made with ❤️</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

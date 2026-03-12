@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Napkin Machine Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="https://img.icons8.com/ios-filled/100/fa709a/butterfly.png" alt="Logo">
+      <h1>MONTHLY MATE</h1>
+    </div>
+
+    <nav class="menu" id="menu">
+      <a href="index.html">Home</a>
+      <a href="wohy.html">Women’s Hygiene</a>
+      <a href="periodstrack.html">Period Tracker</a>
+      <a href="periodsana.html">Period Analysis</a>
+      <a href="disandprev.html">Diseases & Prevention</a>
+      <a href="napm.html" class="active">Napkin machine tracker</a>
+      <a href="more.html">More</a>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <!-- ✅ Napkin Tracker Content -->
+  <main class="napm-container">
+
+    <section class="napm-hero">
+      <h2>Napkin Vending Machine Tracker</h2>
+      <p>Search Mumbai areas to find verified napkin vending machine locations.</p>
+    </section>
+
+    <section class="napm-search-card">
+      <input id="napmSearchInput" type="text" placeholder="Search area (Kurla, Bandra, Andheri...)" />
+      <button onclick="napmSearchMachines()">Search</button>
+      <button class="napm-secondary" onclick="napmShowAll()">Show All</button>
+    </section>
+
+    <section class="napm-results-card">
+      <h3>Machines Found</h3>
+      <p class="napm-status" id="napmStatus">Showing all machines.</p>
+
+      <div id="napmResultsList"></div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Women’s Hygiene | Made with ❤️</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
